@@ -13,14 +13,12 @@ int main() {
   assert((60 > 20) == true); // Al comparar enteros, el tipo de dato devuelto es un booleano
 
 
-
   // char
   assert('/' + 'O' == 0x7E); // Resultado en hexadecimal
   assert('x' / '<' == 2);
   assert(('m' > 'l') or ('n' < 'a') == true); // Comparación de la posición de los caracteres en ASCII
   assert('A'<'B'== true); // Combinacion de char con booleano. Comparación de la posición de los caracteres en ASCII
   assert('d' + '@' > 120);
-
 
 
   // unsigned
@@ -31,14 +29,12 @@ int main() {
   assert(15u % 4u == 3u);
 
 
-
   // int
   assert(0b1010 + 0b0101 == 15);
   assert(0xA > 0b1001); // 10 > 9
   assert(9 / 5 == 1); // División entre enteros, devuelve la parte entera del resultado
   assert(24 + 24 != 50);
   assert(0xC6 - 100 == 98); // Operación combinando hexadecimal y decimal
-
   
   
   // double
@@ -47,7 +43,6 @@ int main() {
   assert((0.3 - 0.2) != (0.2 - 0.1)); // Ambos deberían ser 0.1, en este caso son valores muy cercanos pero diferentes
   assert(3.5 or 6.1 > 4.5);
   assert(0.125 * 8.0 == 1.0);
-
 
 
   // string
