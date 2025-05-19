@@ -11,6 +11,7 @@ int main() {
   assert(not(true and false) == (not true or not false));  // Ley de De Morgan expresada con boolenos: true == true
   assert(true or false == true);
   assert((60 > 20) == true); // Al comparar enteros, el tipo de dato devuelto es un booleano
+  assert(not(28 >= 6) == false); // Al comparar enteros, el tipo de dato devuelto es un booleano
 
 
   // char
@@ -19,6 +20,7 @@ int main() {
   assert(('m' > 'l') or ('n' < 'a') == true); // Comparación de la posición de los caracteres en ASCII
   assert('A'<'B'== true); // Combinacion de char con booleano. Comparación de la posición de los caracteres en ASCII
   assert('d' + '@' > 120);
+  assert('a' - 'A' == 32); // Distancia entre minúscula y mayúscula en ASCII
 
 
   // unsigned
@@ -27,6 +29,7 @@ int main() {
   assert(30u > 20u);
   assert(2u + 7u == 9u);
   assert(15u % 4u == 3u);
+  assert(10u - 10u == 0u);
 
 
   // int
@@ -35,6 +38,7 @@ int main() {
   assert(9 / 5 == 1); // División entre enteros, devuelve la parte entera del resultado
   assert(24 + 24 != 50);
   assert(0xC6 - 100 == 98); // Operación combinando hexadecimal y decimal
+  assert((8 % 3) + 1 == 3);
   
   
   // double
@@ -43,6 +47,7 @@ int main() {
   assert((0.3 - 0.2) != (0.2 - 0.1)); // Ambos deberían ser 0.1, en este caso son valores muy cercanos pero diferentes
   assert(3.5 or 6.1 > 4.5);
   assert(0.125 * 8.0 == 1.0);
+  assert(0.1 * 3.0 != 0.3);
 
 
   // string
@@ -51,5 +56,6 @@ int main() {
   assert(""s != "abc"s); // Comparación de cadenas vacías con cadenas no vacías
   assert(("A"s + "B"s + "C"s == "ABC"s));
   assert("Algoritmos"s != "algoritmos"s); // Comparación de cadenas con diferentes mayúsculas y minúsculas
+  assert("Hola, "s + "mundo!"s == "Hola, mundo!"s);
 
 }
