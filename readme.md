@@ -73,6 +73,11 @@ El contenido fue elaborado como parte de la cursada anual durante el ciclo lecti
 ├── 📂 01-EjemploTipos
 │   └── EjemploTipos.cpp
 │   └── readme.md
+│
+├── 📂 02-Celsius
+│   └── Temp.cpp
+│   └── readme.md
+│
 └── readme.md
 ```
 
