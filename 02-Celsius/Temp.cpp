@@ -11,6 +11,10 @@ void TablaFahrenheitACelsius();
 
 
 int main() {
+    assert(AreNear(Fahrenheit(-5), 23.0));  // Conversión de Celsius(-5) a Fahrenheit (23.0)
+    assert(AreNear(Fahrenheit(0), 32.0));  // Conversión de Celsius(0) a Fahrenheit (32.0)
+    assert(AreNear(Fahrenheit(15), 59.0)); // Conversión de Celsius(15) a Fahrenheit (59.0)
+    
     double tolerancias[] = {0.01, 0.0001, 0.00001};
     int cantidadTolerancias = sizeof(tolerancias) / sizeof(tolerancias[0]);
     
