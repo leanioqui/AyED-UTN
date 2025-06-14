@@ -57,4 +57,5 @@ void TablaFahrenheitACelsius() {
                   << std::right << std::setw(10)
                   << std::fixed << std::setprecision(1) << celsius << '\n';
     }
+    //prueba
 }
