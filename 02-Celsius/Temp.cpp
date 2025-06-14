@@ -35,16 +35,15 @@ double Fahrenheit (double celsius) {
 }
 
 void TablaCelsiusAFahrenheit() {
-    std::cout << "Tabla Celsius → Fahrenheit\n";
-    std::cout << std::right << std::setw(10) << "Celsius"
-              << std::right << std::setw(15) << "Fahrenheit\n";
-
-    for (int celsius = -10; celsius <= 40; celsius += 5) {
-        double fahrenheit = Fahrenheit(celsius);
-        std::cout << std::right << std::setw(10) << celsius
-                  << std::right << std::setw(15)
-                  << std::fixed << std::setprecision(1) << fahrenheit << '\n';
+    std::cout << "╔═══════════════╦════════════════════╗\n";
+    std::cout << "║   Celsius     ║   Fahrenheit       ║\n";
+    std::cout << "╠═══════════════╬════════════════════╣\n";
+    for (int celsius = -40; celsius <= 100; celsius+=5) {
+        std::cout << "║" << std::setw(10) << celsius << " ºC"
+                  << "  ║" << std::setw(10) << std::fixed << std::setprecision(1)
+                  << Fahrenheit(celsius) << " ºF" << "       ║\n";
     }
+    std::cout << "╚═══════════════╩════════════════════╝\n\n";
 }
 
 void TablaFahrenheitACelsius() {
