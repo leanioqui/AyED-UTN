@@ -34,4 +34,28 @@ double Fahrenheit (double celsius) {
     return (celsius * 9.0 / 5.0) + 32.0; // Convierte Celsius a Fahrenheit
 }
 
+void TablaCelsiusAFahrenheit() {
+    std::cout << "Tabla Celsius → Fahrenheit\n";
+    std::cout << std::right << std::setw(10) << "Celsius"
+              << std::right << std::setw(15) << "Fahrenheit\n";
 
+    for (int celsius = -10; celsius <= 40; celsius += 5) {
+        double fahrenheit = Fahrenheit(celsius);
+        std::cout << std::right << std::setw(10) << celsius
+                  << std::right << std::setw(15)
+                  << std::fixed << std::setprecision(1) << fahrenheit << '\n';
+    }
+}
+
+void TablaFahrenheitACelsius() {
+    std::cout << "\nTabla Fahrenheit → Celsius\n";
+    std::cout << std::right << std::setw(15) << "Fahrenheit"
+              << std::right << std::setw(10) << "Celsius\n";
+
+    for (int fahrenheit = 20; fahrenheit <= 100; fahrenheit += 5) {
+        double celsius = Celsius(fahrenheit);
+        std::cout << std::right << std::setw(15) << fahrenheit
+                  << std::right << std::setw(10)
+                  << std::fixed << std::setprecision(1) << celsius << '\n';
+    }
+}
