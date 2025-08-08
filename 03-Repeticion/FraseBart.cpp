@@ -1,14 +1,15 @@
-#include<iostream> 
-//#include<string>
+#include <iostream>
+#include <cassert>
+#include <string>
+using std::string;
+using namespace std::string_literals;
 
-
-std::string repetirfrase(int n);
+string frase(unsigned int n);
 
 int main(){
- return 0;
+    return 0;
 }
 
-std::string repetirfrase(int n){
+string frase(unsigned int n){
     
-
 }
