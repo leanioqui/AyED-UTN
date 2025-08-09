@@ -14,5 +14,5 @@ int main(){
 }
 
 string frase(unsigned int n){
-    
+    return n==0?""s:"Voy a estudiar programacion \n"s+frase(n-1);   
 }
