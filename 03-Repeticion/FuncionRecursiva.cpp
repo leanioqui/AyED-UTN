@@ -20,7 +20,11 @@ unsigned int sumaDigitos(unsigned int n){
 }
 
 unsigned int contarVocales(string s, unsigned int i) {
-    return 0;
+    if (i > s.size()) return 0;
+    if (i == s.size()) return 0;
+    char c = tolower(s[i]);
+    bool esVocal = (c=='a' or c=='e' or c=='i' or c=='o' or c=='u');
+    return (esVocal ? 1 : 0) + contarVocales(s, i + 1);
 }
 
 void pruebasSumaDigitos(){
