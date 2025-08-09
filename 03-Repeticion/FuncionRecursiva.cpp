@@ -8,10 +8,13 @@ unsigned int sumaDigitos(unsigned int n);
 void pruebasSumaDigitos();
 unsigned int contarVocales(string s, unsigned int i);
 void pruebasContarVocales();
+unsigned int sumaMultiplos4(unsigned int);
+void pruebaSumaMultiplos4();
 
 int main(){
     pruebasSumaDigitos();
     pruebasContarVocales();
+    pruebaSumaMultiplos4();
     return 0;
 }
 
@@ -25,6 +28,13 @@ unsigned int contarVocales(string s, unsigned int i) {
     char c = tolower(s[i]);
     bool esVocal = (c=='a' or c=='e' or c=='i' or c=='o' or c=='u');
     return (esVocal ? 1 : 0) + contarVocales(s, i + 1);
+}
+
+unsigned int sumaMultiplos4(unsigned int n)
+{
+    return (n <= 0) 
+    ? 0 
+    : (n % 4 == 0 ? n + sumaMultiplos4(n - 4) : sumaMultiplos4(n - 1));
 }
 
 void pruebasSumaDigitos(){
@@ -41,4 +51,11 @@ void pruebasContarVocales(){
     assert(contarVocales("n"s, 0)==0);
     assert(contarVocales(""s,3)==0);
     assert(contarVocales("HabLA"s, 0)==2);
+}
+
+void pruebaSumaMultiplos4(){
+    assert(sumaMultiplos4(3) == 0); // No hay múltiplos de 4 <= 3
+    assert(sumaMultiplos4(4) == 4); // 4 es el único múltiplo de 4 <= 4
+    assert(sumaMultiplos4(10) == 12); // 4 + 8 = 12
+    assert(sumaMultiplos4(25) == 84); // 4 + 8 + 12 + 16 + 20 + 24 = 84
 }
