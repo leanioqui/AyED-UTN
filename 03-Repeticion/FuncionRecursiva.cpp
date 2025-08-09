@@ -7,6 +7,10 @@ using namespace std::string_literals;
 unsigned int sumaDigitos(unsigned int n);
 
 int main(){
+    assert(sumaDigitos(103)==4);
+    assert(sumaDigitos(0)==0);
+    assert(sumaDigitos(9)==9);
+    assert(sumaDigitos(1358)==17);
     return 0;
 }
 
