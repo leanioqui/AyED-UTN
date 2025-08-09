@@ -35,4 +35,10 @@ void pruebasSumaDigitos(){
 }
 
 void pruebasContarVocales(){
+    assert(contarVocales("habla"s, 0)==2);
+    assert(contarVocales("habla"s, 2)==1);
+    assert(contarVocales(""s,0)==0);
+    assert(contarVocales("n"s, 0)==0);
+    assert(contarVocales(""s,3)==0);
+    assert(contarVocales("HabLA"s, 0)==2);
 }
