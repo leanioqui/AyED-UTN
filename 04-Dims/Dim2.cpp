@@ -14,15 +14,13 @@ matriz ventasTotales (istream&);
 int main(){
 
     unsigned m, v;
-    const char* nombresMeses[] = {
-    "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
-};
-
+    const char* nombresMeses[] = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
+    const char* nombresVendedores[] = {"Jose", "Maria", "Leandro"};
     matriz final = ventasTotales(cin);
         for (m = 0; m < final.size(); ++m){
     cout << "\nMes de " << nombresMeses[m] << ": \n";
     for (v = 0; v < final.at(m).size(); ++v)
-        cout << "Vendedor " << v << ": " << final.at(m).at(v) << "\n";
+        cout << "Vendedor/a " << nombresVendedores[v] << ": " << final.at(m).at(v) << "\n";
 
     }
     return 0;
