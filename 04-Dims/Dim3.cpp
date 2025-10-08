@@ -2,11 +2,13 @@
 #include <cassert>
 #include <array>
 #include <string>
+#include <iomanip>
 using std::array;
 using std::cin;
 using std::cout;
 using std::istream;
 using std::string;
+using std::setw;
 
 
 using matriz = array<array<array<unsigned, 3>, 4>, 12>; //12 meses, 4 regiones, 3 vendedores
@@ -15,16 +17,34 @@ matriz ventasTotales (istream&);
 
 int main(){
 
-    unsigned m, v;
     array<const string, 12> nombresMeses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
-    array<const string, 3> nombresVendedores = {"Jose", "Maria", "Leandro"};
+    array<const string, 4> nombresRegiones = {"Norte", "Sur", "Este", "Oeste"};
+    array<const string, 3> nombresVendedores = {"Roberto", "Humberto", "Mamerto"};
 
     matriz final = ventasTotales(cin);
-        for (m = 0; m < final.size(); ++m){
-    cout << "\nMes de " << nombresMeses.at(m) << ": \n";
-    for (v = 0; v < final.at(m).size(); ++v)
-        cout << "Vendedor " << nombresVendedores.at(v) << ": " << final.at(m).at(v) << "\n";
 
+    const int anchoCelda = 8; // ancho fijo para cada columna
+
+    for(int r=0; r<4; r++){ // Cambiar entre regiones
+        //Encabezado de región
+        cout << "\n======== Region: " << nombresRegiones.at(r) << " ========\n"; 
+
+        // Encabezado de meses
+        cout << setw(anchoCelda) << "Vendedor"; 
+        for(int m=0; m<12; m++)
+            cout << setw(anchoCelda) << nombresMeses.at(m) .substr(0,3); // abreviar a las tres primeras letras del mes y rellenar con caracteres de espacio
+        cout << "\n";
+
+        // Separador
+        cout << string(anchoCelda*13, '-') << "\n"; // anchoCelda * (12 meses + columna vendedor)
+
+        // Filas de vendedores
+        for(int v=0; v<3; v++){
+            cout << setw(anchoCelda) << nombresVendedores.at(v);
+            for(int m=0; m<12; m++)
+                cout << setw(anchoCelda) << final.at(m).at(r).at(v);
+            cout << "\n";
+        }
     }
     return 0;
 }
