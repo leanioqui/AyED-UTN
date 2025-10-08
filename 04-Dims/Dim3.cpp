@@ -1,3 +1,12 @@
+/* Necesidad #4: Dado los importes, meses, números de los tres vendedores, y
+números de las cuatro regiones (0, 1, 2, 4), mostrar total de ventas por mes,
+vendedor, y región. */
+
+/*  Ejecutar los siguientes comandos desde la terminal powershell estando en la carpeta 04-Dims:
+    g++ Dim3.cpp -o Dim3.exe
+    Get-Content Test3.txt | .\Dim3
+*/
+
 #include <iostream>
 #include <cassert>
 #include <array>

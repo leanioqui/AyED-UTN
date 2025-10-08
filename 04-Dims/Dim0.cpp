@@ -1,3 +1,11 @@
+/* Necesidad #1: Dado los importes, mostrar ventas totales. */
+
+/*  Ejecutar los siguientes comandos desde la terminal powershell estando en la carpeta 04-Dims:
+    g++ Dim0.cpp -o Dim0.exe
+    Get-Content Test0.txt | .\Dim0
+*/
+
+
 #include <iostream>
 #include <cassert>
 using std::cin;
@@ -18,7 +26,3 @@ int main(){
     return 0;
 }
 
-/*  Ejecutar desde la terminal powershell estando en la carpeta 04-Dims:
-    g++ Dim0.cpp -o Dim0.exe
-    Get-Content Test0.txt | .\Dim0 
-*/

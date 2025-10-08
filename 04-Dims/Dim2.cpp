@@ -1,3 +1,11 @@
+/* Necesidad #3: Dado los importes, meses, y números de los tres vendedores
+(0, 1, 2), mostrar total de ventas por mes y vendedor. */
+
+/*  Ejecutar los siguientes comandos desde la terminal powershell estando en la carpeta 04-Dims:
+    g++ Dim2.cpp -o Dim2.exe
+    Get-Content Test2.txt | .\Dim2
+*/
+
 #include <iostream>
 #include <cassert>
 #include <array>

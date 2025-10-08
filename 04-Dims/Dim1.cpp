@@ -1,3 +1,10 @@
+/* Necesidad #2: Dado los importes y meses (de 0 a 11), mostrar ventas totales
+por mes. */
+
+/*  Ejecutar los siguientes comandos desde la terminal powershell estando en la carpeta 04-Dims:
+    g++ Dim1.cpp -o Dim1.exe
+    Get-Content Test1.txt | .\Dim1
+*/
 #include <iostream>
 #include <cassert>
 #include <array>
