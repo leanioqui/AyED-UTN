@@ -50,7 +50,7 @@ Aplicar redireccionamiento de los flujos estándar.
 
 ---
 
-### 🔹 `std::array<T, N>` vs `T[N]` (arreglo clásico)
+### 🔹Comparativa entre `std::array<T, N>` y `T[N]` (arreglo clásico)
 
 **Ventajas:**
 
@@ -67,7 +67,7 @@ Aplicar redireccionamiento de los flujos estándar.
 
 ---
 
-### 🔹 `.at()` vs `[ ]`
+### 🔹Comparativa entre `.at()` y `[ ]`
 
 **Ventajas de `.at()`:**
 
