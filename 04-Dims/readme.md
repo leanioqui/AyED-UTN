@@ -79,6 +79,3 @@ Aplicar redireccionamiento de los flujos estándar.
 
 * Es **un poco más lenta** que el operador `[ ]` por hacer la verificación de rango.
 * Si se tiene total certeza de que los índices son válidos, `[ ]` resulta más eficiente.
-
-
-
