@@ -12,6 +12,17 @@ using std::array;
 using std::cin;
 using std::cout;
 
+template<unsigned N>
+array<unsigned, N> ventasPorMes(std::istream& in) {
+    array<unsigned, N> ventas = {};
+    int importe, mes;
+    for (; in >> importe >> mes; ) {
+        if (mes >= 0 and mes < N)
+            ventas.at(mes) += importe; 
+    }
+
+    return ventas;
+}
 
 int main(){
     
