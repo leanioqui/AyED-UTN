@@ -78,15 +78,15 @@ int main()
     return 0;
 }
 
-double GetDistancia(Punto a, Punto b) {
-    return sqrt((a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
-}
-
 Punto LeerPunto(ifstream& f)
 {
     Punto p;
     f >> p.x >> p.y;
     return p;
+}
+
+double GetDistancia(Punto a, Punto b) {
+    return sqrt((a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
 }
 
 unsigned GetCantidadDePuntos(const SecuenciaDePuntos& s)
