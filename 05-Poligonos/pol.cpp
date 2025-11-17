@@ -104,3 +104,35 @@ void AddPunto(SecuenciaDePuntos& s, Punto p)
     s.puntos.at(s.n) = p;
     ++s.n;
 }
+
+double GetPerimetro(const Poligono& pol)
+{
+    double perimetro = 0.0;
+    unsigned cantidadDePuntos = GetCantidadDePuntos(pol.secuenciaDePuntos);
+    for (unsigned i = 0; i < cantidadDePuntos; ++i)
+    {
+        Punto actual = pol.secuenciaDePuntos.puntos.at(i);
+        Punto siguiente = pol.secuenciaDePuntos.puntos.at((i + 1) % cantidadDePuntos); // El uso del operador módulo (%) permite que el último punto se conecte con el primero
+        perimetro += GetDistancia(actual, siguiente);
+    }
+    return perimetro;
+}
+
+SecuenciaDePoligonos OrdenarPorPerimetro (const SecuenciaDePoligonos& secuencia)
+{
+    SecuenciaDePoligonos ordenada = secuencia; // Copiamos la secuencia original para no modificarla
+
+    // Usamos el algoritmo de burbuja para ordenar los polígonos por perímetro
+    for (unsigned i = 0; i < ordenada.n - 1; ++i)
+    {
+        for (unsigned j = 0; j < ordenada.n - i - 1; ++j)
+        {
+            if (GetPerimetro(ordenada.poligonos.at(j)) > GetPerimetro(ordenada.poligonos.at(j + 1)))
+            {
+                std::swap(ordenada.poligonos.at(j), ordenada.poligonos.at(j + 1));
+            }
+        }
+    }
+
+    return ordenada;
+}
