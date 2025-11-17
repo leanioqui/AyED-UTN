@@ -1,164 +1,105 @@
 #include <cassert>
-#include <cstddef>
 #include <array>
 #include <iostream>
 #include <fstream>
 #include <cmath>
-#include <vector>
 
 using std::array;
 using std::cin;
 using std::cout;
-using std::vector;
 using std::ifstream;
 
-struct Punto {
-    double PosX, PosY;
+constexpr unsigned CANTIDAD_MAXIMA_DE_PUNTOS {100};
+
+constexpr unsigned CANTIDAD_MAXIMA_DE_POLIGONOS {1'000};
+
+struct Punto
+{
+    double x, y;
 };
 
-
-struct Puntos {                          // ANALIZAR SI NECESITAMOS ESTE
-    vector<Punto> secuencia; 
-};
-
-struct Color {
+struct Color
+{
     char r, g, b;
 };
 
-struct Segmento {                   // ANALIZAR SI NECESITAMOS SEGMENTO o podemos implementarlo de otra manera
-    array<Punto, 2> puntos;
-    double longitud;
+struct SecuenciaDePuntos
+{
+    array<Punto, CANTIDAD_MAXIMA_DE_PUNTOS> puntos ;
+    unsigned n;
 };
 
-struct Poligono{
-    vector<Segmento> segmentos;   // si sacamos segmento, sacar esto tambien
+struct Poligono
+{
+    SecuenciaDePuntos secuenciaDePuntos;
     Color color;
-    double perimetro;
-    int lados;
 };
 
-struct SecuenciaDePuntos{
-    array<Punto, 100> a;
-    unsigned n; //número de puntos almacenados
+struct SecuenciaDePoligonos
+{
+    array<Poligono, CANTIDAD_MAXIMA_DE_POLIGONOS> poligonos;
+    unsigned n;
 };
 
-
-struct SecuenciaPoligonos{
-    vector<Poligono> secuencia;
-};
+double GetDistancia(Punto, Punto);
 
 Punto LeerPunto(ifstream&);
 
-double getDistancia(Punto, Punto);
+unsigned GetCantidadDePuntos(const SecuenciaDePuntos&);
 
-Segmento createSegmento(Punto, Punto);           // ANALIZAR SI NECESITAMOS ESTE 
+unsigned GetCantidadDeLados(const Poligono&);
 
-Poligono createPoligono(Puntos, Color);        // create o CREAR?? ver consigna y analizarlo juntos
+void AddPunto(SecuenciaDePuntos&, Punto);
 
-double getPerimetro(Poligono);
+Poligono GetNewPoligono(std::ifstream&);
 
-double getLados(Poligono);
 
-void addPunto(Puntos, Punto);
 
-void addPoligono(Poligono, Poligono);
+int main()
+{
+    //Pruebas
+        //Pruebas de Punto
 
-Poligono getNewPoligono(ifstream&);
+        //Pruebas de Poligono
 
-//Creditos extra
-Punto getPunto(Poligono, int);
-Poligono removePunto(Poligono);
+    //Procesar
+        //LeerPoligonos
 
-int main(){
-    ifstream archivo("flujoPol.txt");
-    //Color
-    Color c {0, 0, 0};
+        //OrdenarPorCantidadDeLados
 
-    //Triangulo
-    Punto x1 {0, 0};
-    Punto x2 {1, 1};
-    Punto x3 {0, 2};
+        //EscribirPoligonos
 
-    Puntos puntosTriangulo;
-    puntosTriangulo.secuencia = {x1, x2, x3};
+        //OrdenarPorPerimetro
 
-    Poligono triangulo = createPoligono(puntosTriangulo, c);
+        //EscribirPoligonos
 
-    //Cuadrado
-    Punto c1 {0, 0};
-    Punto c2 {1, 0};
-    Punto c3 {1, 1};
-    Punto c4 {0, 1};
 
-    Puntos puntosCuadrado;
-    puntosCuadrado.secuencia = {c1, c2, c3, c4};
-
-    Poligono cuadrado = createPoligono(puntosCuadrado, c);
-
-    SecuenciaPoligonos secuenciaDePoligonos;
-    secuenciaDePoligonos.secuencia = {triangulo, cuadrado};
-
-    assert(triangulo.segmentos.at(2).longitud == 2.0);
-
-    assert(triangulo.segmentos.at(0).longitud +
-           triangulo.segmentos.at(1).longitud +
-           triangulo.segmentos.at(2).longitud == getPerimetro(triangulo));
-
-    assert(getLados(triangulo) == 3);
-
-    assert(getLados(cuadrado) == 4);
-
-    assert(getPerimetro(cuadrado) == 4);
-    
     return 0;
-
 }
 
-Punto LeerPunto(ifstream& f){
+double GetDistancia(Punto a, Punto b) {
+    return std::sqrt((a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
+}
+
+Punto LeerPunto(ifstream& f)
+{
     Punto p;
-    f >> p.PosX >> p.PosY;
+    f >> p.x >> p.y;
     return p;
 }
 
-double getDistancia(Punto p1, Punto p2){
-   return std::sqrt(std::pow(p2.PosX - p1.PosX, 2)+ std::pow(p2.PosY - p1.PosY, 2));
+unsigned GetCantidadDePuntos(const SecuenciaDePuntos& s)
+{
+    return s.n;
 }
 
-Segmento createSegmento(Punto p1, Punto p2){
-    array<Punto, 2> puntos {p1, p2};
-    Segmento segmento {puntos, getDistancia(p1, p2)};
-    return segmento;
+unsigned GetCantidadDeLados(const Poligono& pol)
+{
+    return GetCantidadDePuntos(pol.secuenciaDePuntos);
 }
 
-Poligono createPoligono(Puntos p, Color c){
-    Poligono pol;
-    pol.color = c;
-    for (int i = 0; i < p.secuencia.size() - 1; i++){
-        pol.segmentos.push_back(createSegmento(p.secuencia.at(i), p.secuencia.at(i+1)));
-    }
-    pol.segmentos.push_back(createSegmento(p.secuencia.at(p.secuencia.size()-1), p.secuencia.at(0)));
-    pol.perimetro = getPerimetro(pol);
-    pol.lados = getLados(pol);
-    return pol;
+void AddPunto(SecuenciaDePuntos& s, Punto p)
+{
+    s.puntos.at(s.n) = p;
+    ++s.n;
 }
-
-double getPerimetro(Poligono p){
-    double perimetro {0.0};
-    for (size_t i{0}; i < p.segmentos.size(); ++i){
-        perimetro = perimetro + p.segmentos.at(i).longitud;
-    }
-    return perimetro;
-}
-
-double getLados(Poligono p){
-    return p.segmentos.size();
-}
-
-void addPunto(Puntos& puntos, Punto p){
-    puntos.secuencia.push_back(p);
-}
-
-void addPoligono(SecuenciaPoligonos poligonos, Poligono p){
-    poligonos.secuencia.push_back(p);
-}
-
