@@ -2,42 +2,58 @@
 #include <cstddef>
 #include <array>
 #include <iostream>
+#include <fstream>
 #include <cmath>
 #include <vector>
+
+using std::array;
+using std::cin;
+using std::cout;
+using std::vector;
+using std::ifstream;
 
 struct Punto {
     double PosX, PosY;
 };
 
-struct Puntos {
-    std::vector<Punto> secuencia; 
+
+struct Puntos {                          // ANALIZAR SI NECESITAMOS ESTE
+    vector<Punto> secuencia; 
 };
 
 struct Color {
     char r, g, b;
 };
 
-struct Segmento {
-    std::array<Punto, 2> puntos;
+struct Segmento {                   // ANALIZAR SI NECESITAMOS SEGMENTO o podemos implementarlo de otra manera
+    array<Punto, 2> puntos;
     double longitud;
 };
 
 struct Poligono{
-    std::vector<Segmento> segmentos;
+    vector<Segmento> segmentos;   // si sacamos segmento, sacar esto tambien
     Color color;
     double perimetro;
     int lados;
 };
 
-struct SecuenciaPoligonos{
-    std::vector<Poligono> secuencia;
+struct SecuenciaDePuntos{
+    array<Punto, 100> a;
+    unsigned n; //número de puntos almacenados
 };
+
+
+struct SecuenciaPoligonos{
+    vector<Poligono> secuencia;
+};
+
+Punto LeerPunto(ifstream&);
 
 double getDistancia(Punto, Punto);
 
-Segmento createSegmento(Punto, Punto);
+Segmento createSegmento(Punto, Punto);           // ANALIZAR SI NECESITAMOS ESTE 
 
-Poligono createPoligono(Puntos, Color);
+Poligono createPoligono(Puntos, Color);        // create o CREAR?? ver consigna y analizarlo juntos
 
 double getPerimetro(Poligono);
 
@@ -47,14 +63,14 @@ void addPunto(Puntos, Punto);
 
 void addPoligono(Poligono, Poligono);
 
-Poligono getNewPoligono(std::ifstream&);
+Poligono getNewPoligono(ifstream&);
 
 //Creditos extra
 Punto getPunto(Poligono, int);
 Poligono removePunto(Poligono);
 
 int main(){
-
+    ifstream archivo("flujoPol.txt");
     //Color
     Color c {0, 0, 0};
 
@@ -98,12 +114,18 @@ int main(){
 
 }
 
+Punto LeerPunto(ifstream& f){
+    Punto p;
+    f >> p.PosX >> p.PosY;
+    return p;
+}
+
 double getDistancia(Punto p1, Punto p2){
    return std::sqrt(std::pow(p2.PosX - p1.PosX, 2)+ std::pow(p2.PosY - p1.PosY, 2));
 }
 
 Segmento createSegmento(Punto p1, Punto p2){
-    std::array<Punto, 2> puntos {p1, p2};
+    array<Punto, 2> puntos {p1, p2};
     Segmento segmento {puntos, getDistancia(p1, p2)};
     return segmento;
 }
