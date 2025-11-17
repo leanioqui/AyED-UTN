@@ -9,6 +9,7 @@ using std::cin;
 using std::cout;
 using std::ifstream;
 using std::sqrt;
+using std::swap;
 
 constexpr unsigned CANTIDAD_MAXIMA_DE_PUNTOS {100};
 
@@ -42,35 +43,48 @@ struct SecuenciaDePoligonos
     unsigned n;
 };
 
-double GetDistancia(Punto, Punto);
 
 Punto LeerPunto(ifstream&);
+
+SecuenciaDePoligonos LeerPoligonos(ifstream&);
+
+double GetDistancia(Punto, Punto);
+
+double GetPerimetro(const Poligono&);
 
 unsigned GetCantidadDePuntos(const SecuenciaDePuntos&);
 
 unsigned GetCantidadDeLados(const Poligono&);
 
+Poligono CrearPoligono(ifstream&);
+
 void AddPunto(SecuenciaDePuntos&, Punto);
 
-Poligono GetNewPoligono(ifstream&);
+SecuenciaDePoligonos OrdenarPorCantLados (const SecuenciaDePoligonos&);
+
+SecuenciaDePoligonos OrdenarPorPerimetro (const SecuenciaDePoligonos&);
 
 
 
 int main()
 {
     //Pruebas
-        //Pruebas de Punto
+        //Pruebas de Punto (GetDistancia)
 
-        //Pruebas de Poligono
+        //Pruebas de Poligono (GetCantidadDeLados, GetPerimetro, AddPunto, CrearPoligono)
 
     //Procesar
-        //LeerPoligonos
+        //LeerPoligonos (usando la función LeerPunto)
+
+        //CrearPoligono (usando la función AddPunto)
+
+        //CrearSecuenciaDePoligonos (usando la funcion LeerPoligonos)
 
         //OrdenarPorCantidadDeLados
 
         //EscribirPoligonos
 
-        //OrdenarPorPerimetro
+        //OrdenarPorPerimetro 
 
         //EscribirPoligonos
 
@@ -129,7 +143,7 @@ SecuenciaDePoligonos OrdenarPorPerimetro (const SecuenciaDePoligonos& secuencia)
         {
             if (GetPerimetro(ordenada.poligonos.at(j)) > GetPerimetro(ordenada.poligonos.at(j + 1)))
             {
-                std::swap(ordenada.poligonos.at(j), ordenada.poligonos.at(j + 1));
+                swap(ordenada.poligonos.at(j), ordenada.poligonos.at(j + 1)); // Intercambiamos los polígonos si están en el orden incorrecto
             }
         }
     }
