@@ -81,7 +81,7 @@ int main()
 Punto LeerPunto(ifstream& f)
 {
     Punto p;
-    f >> p.x >> p.y;
+    f >> p.x >> p.y; //Lee al primer elemento del flujo y lo asigna a p.x, luego lee el segundo elemento y lo asigna a p.y
     return p;
 }
 
