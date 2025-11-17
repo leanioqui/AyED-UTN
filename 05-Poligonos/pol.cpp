@@ -8,6 +8,7 @@ using std::array;
 using std::cin;
 using std::cout;
 using std::ifstream;
+using std::sqrt;
 
 constexpr unsigned CANTIDAD_MAXIMA_DE_PUNTOS {100};
 
@@ -51,7 +52,7 @@ unsigned GetCantidadDeLados(const Poligono&);
 
 void AddPunto(SecuenciaDePuntos&, Punto);
 
-Poligono GetNewPoligono(std::ifstream&);
+Poligono GetNewPoligono(ifstream&);
 
 
 
@@ -78,7 +79,7 @@ int main()
 }
 
 double GetDistancia(Punto a, Punto b) {
-    return std::sqrt((a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
+    return sqrt((a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
 }
 
 Punto LeerPunto(ifstream& f)
