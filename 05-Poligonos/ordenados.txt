@@ -1,0 +1,84 @@
+Poligonos ordenados por cantidad de lados:
+Polígono 1:
+  Punto 1: (2, 4)
+  Punto 2: (4, 4)
+  Punto 3: (3, 6)
+  Perímetro: 6.47214
+  Cantidad de lados: 3
+Polígono 2:
+  Punto 1: (-5, -5)
+  Punto 2: (-4, -6)
+  Punto 3: (-3, -5)
+  Perímetro: 4.82843
+  Cantidad de lados: 3
+Polígono 3:
+  Punto 1: (1, 1)
+  Punto 2: (5, 1)
+  Punto 3: (5, 5)
+  Punto 4: (1, 5)
+  Perímetro: 16
+  Cantidad de lados: 4
+Polígono 4:
+  Punto 1: (10, 10)
+  Punto 2: (12, 10)
+  Punto 3: (12, 12)
+  Punto 4: (10, 12)
+  Perímetro: 8
+  Cantidad de lados: 4
+Polígono 5:
+  Punto 1: (100, 100)
+  Punto 2: (100, 105)
+  Punto 3: (105, 105)
+  Punto 4: (105, 100)
+  Perímetro: 20
+  Cantidad de lados: 4
+Polígono 6:
+  Punto 1: (1, 10)
+  Punto 2: (2, 11)
+  Punto 3: (3, 10)
+  Punto 4: (3, 9)
+  Punto 5: (2, 9)
+  Perímetro: 6.24264
+  Cantidad de lados: 5
+Poligonos ordenados por perímetro:
+Polígono 1:
+  Punto 1: (-5, -5)
+  Punto 2: (-4, -6)
+  Punto 3: (-3, -5)
+  Perímetro: 4.82843
+  Cantidad de lados: 3
+Polígono 2:
+  Punto 1: (1, 10)
+  Punto 2: (2, 11)
+  Punto 3: (3, 10)
+  Punto 4: (3, 9)
+  Punto 5: (2, 9)
+  Perímetro: 6.24264
+  Cantidad de lados: 5
+Polígono 3:
+  Punto 1: (2, 4)
+  Punto 2: (4, 4)
+  Punto 3: (3, 6)
+  Perímetro: 6.47214
+  Cantidad de lados: 3
+Polígono 4:
+  Punto 1: (10, 10)
+  Punto 2: (12, 10)
+  Punto 3: (12, 12)
+  Punto 4: (10, 12)
+  Perímetro: 8
+  Cantidad de lados: 4
+Polígono 5:
+  Punto 1: (1, 1)
+  Punto 2: (5, 1)
+  Punto 3: (5, 5)
+  Punto 4: (1, 5)
+  Perímetro: 16
+  Cantidad de lados: 4
+Polígono 6:
+  Punto 1: (100, 100)
+  Punto 2: (100, 105)
+  Punto 3: (105, 105)
+  Punto 4: (105, 100)
+  Perímetro: 20
+  Cantidad de lados: 4
