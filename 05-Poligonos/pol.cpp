@@ -48,6 +48,8 @@ Punto LeerPunto(ifstream&);
 
 SecuenciaDePoligonos LeerPoligonos(ifstream&);
 
+SecuenciaDePoligonos EscribirPoligonos(const SecuenciaDePoligonos&);
+
 double GetDistancia(Punto, Punto);
 
 double GetPerimetro(const Poligono&);
@@ -97,6 +99,21 @@ Punto LeerPunto(ifstream& f)
     Punto p;
     f >> p.x >> p.y; //Lee al primer elemento del flujo y lo asigna a p.x, luego lee el segundo elemento y lo asigna a p.y
     return p;
+}
+
+SecuenciaDePoligonos EscribirPoligonos(const SecuenciaDePoligonos& sec)
+{
+    for (unsigned i = 0; i < sec.n; i++)
+    {
+        const Poligono& p = sec.poligonos[i];
+        cout << "Poligono " << i + 1 << ": "
+             << GetCantidadDeLados(p) << " lados, "
+             << "Perimetro = " << GetPerimetro(p) << "\n";
+    }
+
+    if (sec.n > 0)
+        cout << "\n";
+    return sec;
 }
 
 double GetDistancia(Punto a, Punto b) {
