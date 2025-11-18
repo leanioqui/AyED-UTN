@@ -66,7 +66,6 @@ SecuenciaDePoligonos OrdenarPorPerimetro (const SecuenciaDePoligonos&);
 
 void Pruebas();
 
-
 int main()
 {
     //Pruebas
@@ -173,5 +172,15 @@ void Pruebas(){
     assert(GetCantidadDeLados({{{{{0,0}, {1,0}}}}}) == 2);
     assert(GetCantidadDeLados({{{{{0,0}}}}}) == 1);
     assert(GetCantidadDeLados({{{{}}}}) == 0);
+
+    //Pruebas de GetPerimetro
+
+    assert(GetPerimetro({{{{{0,0}, {1,0}, {1,1}, {0,1}}}}}) == 4.0);
+    assert(GetPerimetro({{{{{0,0}, {3,0}, {0,4}}}}}) == 12.0);
+    assert(GetPerimetro({{{{{0,0}, {0,5}, {5,5}, {5,0}}}}}) == 20.0);
+    assert(GetPerimetro({{{{{1,1}, {4,1}, {4,5}, {1,5}}}}}) == 14.0);
+    assert(GetPerimetro({{{{{0,0}, {2,0}, {1,1}}}}}) != 7.0);
+
+    //Pruebas de CrearPoligono y AddPunto
 
 }
