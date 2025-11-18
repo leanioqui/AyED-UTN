@@ -132,6 +132,25 @@ double GetPerimetro(const Poligono& pol)
     return perimetro;
 }
 
+SecuenciaDePoligonos OrdenarPorCantLados(const SecuenciaDePoligonos& secuencia)
+{
+    SecuenciaDePoligonos ordenada = secuencia;
+
+    if (ordenada.n < 2) return ordenada;
+
+    for (unsigned i = 0; i < ordenada.n - 1; ++i) {
+        for (unsigned j = 0; j < ordenada.n - i - 1; ++j) {
+            unsigned ladosActual    = GetCantidadDeLados(ordenada.poligonos.at(j));
+            unsigned ladosSiguiente = GetCantidadDeLados(ordenada.poligonos.at(j + 1));
+
+            if (ladosActual > ladosSiguiente) {
+                swap(ordenada.poligonos.at(j), ordenada.poligonos.at(j + 1));
+            }
+        }
+    }
+    return ordenada;
+}
+
 SecuenciaDePoligonos OrdenarPorPerimetro (const SecuenciaDePoligonos& secuencia){
     SecuenciaDePoligonos ordenada = secuencia; // Copiamos la secuencia original para no modificarla
 
