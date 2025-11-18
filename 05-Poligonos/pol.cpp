@@ -64,6 +64,7 @@ SecuenciaDePoligonos OrdenarPorCantLados (const SecuenciaDePoligonos&);
 
 SecuenciaDePoligonos OrdenarPorPerimetro (const SecuenciaDePoligonos&);
 
+void Pruebas();
 
 
 int main()
@@ -132,8 +133,7 @@ double GetPerimetro(const Poligono& pol)
     return perimetro;
 }
 
-SecuenciaDePoligonos OrdenarPorPerimetro (const SecuenciaDePoligonos& secuencia)
-{
+SecuenciaDePoligonos OrdenarPorPerimetro (const SecuenciaDePoligonos& secuencia){
     SecuenciaDePoligonos ordenada = secuencia; // Copiamos la secuencia original para no modificarla
 
     // Usamos el algoritmo de burbuja para ordenar los polígonos por perímetro
@@ -149,4 +149,29 @@ SecuenciaDePoligonos OrdenarPorPerimetro (const SecuenciaDePoligonos& secuencia)
     }
 
     return ordenada;
+}
+
+
+void Pruebas(){
+
+//Pruebas de Punto
+
+    //Pruebas de GetDistancia
+
+    assert(GetDistancia({0,0}, {3,4}) == 5.0);
+    assert(GetDistancia({1,1}, {4,5}) == 5.0); 
+    assert(GetDistancia({-1,-1}, {2,0}) != 6.7);
+    assert(GetDistancia({0,0}, {0,0}) == 0.0);
+    assert(GetDistancia({-1,-1}, {-1,-1}) == 0.0);
+
+//Pruebas de Poligono
+
+    //Pruebas de GetCantidadDeLados
+
+    assert(GetCantidadDeLados({{{{{0,0}, {1,0}, {1,1}, {0,1}}}}}) == 4);
+    assert(GetCantidadDeLados({{{{{0,0}, {2,0}, {1,1}}}}}) == 3);
+    assert(GetCantidadDeLados({{{{{0,0}, {1,0}}}}}) == 2);
+    assert(GetCantidadDeLados({{{{{0,0}}}}}) == 1);
+    assert(GetCantidadDeLados({{{{}}}}) == 0);
+
 }
