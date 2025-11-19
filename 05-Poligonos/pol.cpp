@@ -79,7 +79,7 @@ SecuenciaDePoligonos crearSecuenciaDePoligonos(istream&, unsigned);
 
 SecuenciaDePoligonos OrdenarPorPerimetro(const SecuenciaDePoligonos&);
 
-SecuenciaDePoligonos OrdenarPorCantidadDeLados(const SecuenciaDePoligonos&);
+SecuenciaDePoligonos OrdenarPorCantLados(const SecuenciaDePoligonos&);
 
 void EscribirPoligonos(const SecuenciaDePoligonos&, string);
 
@@ -93,7 +93,7 @@ int main()
 
     SecuenciaDePoligonos poligonos = crearSecuenciaDePoligonos(flujo, 6);
 
-    SecuenciaDePoligonos ordenarPorCantidadDeLados = OrdenarPorCantidadDeLados(poligonos);
+    SecuenciaDePoligonos ordenarPorCantidadDeLados = OrdenarPorCantLados(poligonos);
 
     EscribirPoligonos(ordenarPorCantidadDeLados, "Poligonos ordenados por cantidad de lados:");
 
@@ -267,34 +267,13 @@ bool Pruebas(){
     assert(GetPerimetro(ordenadaPorPerimetro.poligonos.at(2)) == 20.0);
 
     //Pruebas de OrdenarPorCantidadDeLados
-    SecuenciaDePoligonos ordenadaPorLados = OrdenarPorCantidadDeLados(secuencia);
+    SecuenciaDePoligonos ordenadaPorLados = OrdenarPorCantLados(secuencia);
     assert(GetCantidadDeLados(ordenadaPorLados.poligonos.at(0)) == 3);
     assert(GetCantidadDeLados(ordenadaPorLados.poligonos.at(1)) == 4);
     assert(GetCantidadDeLados(ordenadaPorLados.poligonos.at(2)) == 4);
 
     return true;
 
-}
-
-SecuenciaDePoligonos OrdenarPorCantidadDeLados (const SecuenciaDePoligonos& secuencia)
-{
-    SecuenciaDePoligonos ordenada = secuencia; // Copiamos la secuencia original para no modificarla
-
-    // Usamos el algoritmo de burbuja para ordenar los polígonos por cantidad de lados
-    if (ordenada.n < 2) return ordenada;
-
-    for (unsigned i = 0; i < ordenada.n - 1; ++i)
-    {
-        for (unsigned j = 0; j < ordenada.n - i - 1; ++j)
-        {
-            if (GetCantidadDeLados(ordenada.poligonos.at(j)) > GetCantidadDeLados(ordenada.poligonos.at(j + 1)))
-            {
-                std::swap(ordenada.poligonos.at(j), ordenada.poligonos.at(j + 1));
-            }
-        }
-    }
-
-    return ordenada;
 }
 
 SecuenciaDePoligonos crearSecuenciaDePoligonos(istream& f, unsigned cantidadDePoligonos)
