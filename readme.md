@@ -1,6 +1,6 @@
 # 📚 Algoritmos y Estructuras de Datos – Repositorio Grupal
 
-![Estado](https://img.shields.io/badge/Estado-En%20Curso-blue)
+![Estado](https://img.shields.io/badge/Estado-Finalizado-green)
 ![Materia](https://img.shields.io/badge/Materia-AED-9cf)
 ![Año](https://img.shields.io/badge/Año-2025-orange)
 ![Curso](https://img.shields.io/badge/Curso-K1053-yellow)
